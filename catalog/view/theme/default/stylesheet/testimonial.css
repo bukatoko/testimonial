@@ -29,3 +29,54 @@
 .testimonial .links {
 	text-align: right;
 }
+/* TESTIMONIAL PAGE */
+.testimonial-list {
+
+}
+.testimonial-list ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.testimonial-list li {
+	border:1px solid #EFF0F1;
+	clear: both;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+.testimonial-list li .description {
+	font-size: 16px;
+	line-height: 1.25em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.testimonial-list li .description p:last-child {
+	margin-bottom: 0;
+}
+.testimonial-list li .profile:after {
+	content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.testimonial-list li .profile .image {
+	display: block;
+	float: left;
+	margin-right: 15px;
+}
+.testimonial-list li .profile .image img {
+	display: inline;
+}
+.testimonial-list li .profile .info {
+	margin-left: 70px;
+}
+.testimonial-list li .profile .info * {
+	display: block;
+}
+.testimonial-list li .profile .info .testi-date {
+	display: block;
+	font-size: 10px;
+	margin-bottom: 5px;
+}

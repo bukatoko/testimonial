@@ -3,6 +3,9 @@ class ControllerModuleTestimonial extends Controller {
 	protected function index($setting) {
 		$this->language->load('module/testimonial');
 
+		// Add by Bukatoko® 2014-08-12
+		$this->load->model('tool/image');
+
 		$this->load->model('testimonial/testimonial');
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/stylesheet/ym.css')) {
@@ -32,12 +35,21 @@ class ControllerModuleTestimonial extends Controller {
 				}
 			}
 
+			// Add by Bukatoko® 2014-08-12
+			// Silahkan ganti angka untuk mengatur ukurang image
+			if ($result['image']) {
+				$image = $this->model_tool_image->resize($result['image'], 50, 50);
+			} else {
+				$image = false;
+			}
+
 			$this->data['testimonials'][] = array(
 				'name'			=> $result['name'],
 				'url'			=> $url,
 				'location'		=> $result['location'],
 				'rating'		=> $result['rating'],
 				'date'			=> $result['date'],
+				'image'			=> $image,	// Add by Bukatoko® 2014-08-12
 				'description'	=> strlen(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')) < 180 ? html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8') : substr(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'), 0, 150) . '<span>...</span>'
 			);
 		}
